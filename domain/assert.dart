@@ -5,4 +5,7 @@ main(List<String> args) {
 
   cal.cal("1+1+1+11+1+1+1");
 
+
+  print(cal.cal("5+55+5"));
+
 }
