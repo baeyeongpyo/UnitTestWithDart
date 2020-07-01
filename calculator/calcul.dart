@@ -18,29 +18,33 @@ class Calcul {
         mathSymbol.add(s);
         tempString = "";
       }
-      return mathListCal(numberList, mathSymbol);
     });
+    if (tempString.isNotEmpty) {
+      numberList.add(int.parse(tempString));
+    }
+
+    return mathListCal(numberList, mathSymbol);
   }
 
   int mathListCal(List<int> numberList, List<String> mathSymbol) {
-    Iterator<int> numberIterable = numberList.iterator;
-    int calResult = numberIterable.current;
+    int positionCount = 0;
+    int calResult = numberList[positionCount++];
     Calculator calculator = Calculator();
     mathSymbol.forEach((symbol) {
-      symbolCal(calculator, symbol, calResult, numberIterable.current);
+      calResult = symbolCal(calculator, symbol, calResult, numberList[positionCount++]);
     });
     return calResult;
   }
 
-  int symbolCal(Calculator calculator,String symbol, int a, int b) {
+  int symbolCal(Calculator calculator, String symbol, int a, int b) {
     int result = 0;
-    if (symbol == '+'){
+    if (symbol == '+') {
       result = calculator.sum(a, b);
-    }else if ( symbol == '-'){
+    } else if (symbol == '-') {
       result = calculator.min(a, b);
-    }else if ( symbol == '*'){
-      result  = calculator.mul(a, b);
-    }else if ( symbol == '/'){
+    } else if (symbol == '*') {
+      result = calculator.mul(a, b);
+    } else if (symbol == '/') {
       result = calculator.div(a, b);
     }
     return result;
