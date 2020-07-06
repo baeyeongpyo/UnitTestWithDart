@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-main(List<String> args) {
+main() {
   test("test 1",(){
     print("test 1 print");
   });

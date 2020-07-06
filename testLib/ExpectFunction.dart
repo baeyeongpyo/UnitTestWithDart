@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-main(List<String> args) {
+main() {
   test("number Test",(){
     expect(10, equals(10));
   });

@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-main(List<String> args) {
+main() {
   test("Future Test", () async {
     int number = await Future.value(10);
     expect(number, equals(10));

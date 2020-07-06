@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-main(List<String> args) {
+main() {
   
   group("test Group 1", (){
     test("test Group 1 _ test 1", (){
