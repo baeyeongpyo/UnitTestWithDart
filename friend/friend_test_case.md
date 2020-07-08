@@ -9,7 +9,17 @@
   * `ALREADY_FRIENDS` : 나와 친구를 맺고 있음.
   * `ME` : 자신을 조회 할 경우.
   * `FRIENDS_REQUEST_RECEIVED` : 상대가 나에게 친구 요청을 함.
-  
+
+
+## API (서버는 임의로 가정한 주소)
+
+| 기능           | 주소                      | 키1              |
+| -------------- | ------------------------- | ---------------- |
+| 친구 신청      | POST : `/friend/apply`    | userUniqId : Int |
+| 친구 신청 취소 | DELETE : `/friend/cancel` | userUniqId : Int |
+| 친구 수락      | POST : `/friend/receive`  | userUniqId : Int |
+| 친구 거절      | DELETE : `/friend/reject` | userUniqId : Int |
+| 친구 삭제      | DELETE : `friend/remove`  | userUniqId : Int |
 
 ## 조건
 
@@ -30,5 +40,9 @@
  * 상대방의 사용자 인증이 되어 있지 않다면 3명 까지만 추가가 가능하므로 이미 3명이 있는 유저에게 수락 불가.
  * 상대방의 사용자 인증이 되어 있다면 50명 까지만 추가가 가능하므로 이미 50명이 있는 유저에게 수락 불가.
 
+### 친구 거절
+ * 상대와 나와의 관계가 `FRIENDS_REQUEST_RECEIVED` 일때만 거절.
+
 ### 친구 삭제
  * 상대와 나와의 관계가 `ALREADY_FRIENDS` 일때만 삭제.
+
