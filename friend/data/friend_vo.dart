@@ -4,6 +4,6 @@ class FriendVO {
   int userUniqKey;
   int firendCount;
   FriendStateEnum firendState;
-  bool auth;
-  FriendVO(this.userUniqKey, this.firendCount, this.firendState, this.auth);
+  bool isAuth;
+  FriendVO(this.userUniqKey, this.firendCount, this.firendState, this.isAuth);
 }

@@ -2,7 +2,7 @@ import 'data/friend_state_enum.dart';
 import 'data/friend_vo.dart';
 import 'friend_config_value.dart';
 
-class friendUtil {
+class FriendUtil {
   bool isfriendApplyCheck(FriendVO myInfo, FriendVO userInfo) {
     int myFriendLimit = _friendLimitCount(myInfo);
     int userFriendLimit = _friendLimitCount(userInfo);
