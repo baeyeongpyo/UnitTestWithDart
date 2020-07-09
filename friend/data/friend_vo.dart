@@ -1,8 +1,9 @@
 import 'friend_state_enum.dart';
 
-class FriendVO{
+class FriendVO {
   int userUniqKey;
   int firendCount;
   FriendStateEnum firendState;
-  FriendVO(userUniqKey,firendCount,firendState);
+  bool auth;
+  FriendVO(this.userUniqKey, this.firendCount, this.firendState, this.auth);
 }
