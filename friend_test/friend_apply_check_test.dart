@@ -12,5 +12,10 @@ main() {
       final userInfo = new FriendVO(null, 0, FriendStateEnum.NOTHING, false);
       expect(friendUtil.isfriendApplyCheck(myInfo, userInfo), true);
     });
+    test("나 ( 친구 ${FriendUtil.NOT_AUTH_FRIEND_MAX_COUNT} , 인증 x ), 상대 ( 친구 0 , 인증 x )", () {
+      final myInfo = new FriendVO(null, FriendUtil.NOT_AUTH_FRIEND_MAX_COUNT, FriendStateEnum.ME, false);
+      final userInfo = new FriendVO(null, 0, FriendStateEnum.NOTHING, false);
+      expect(friendUtil.isfriendApplyCheck(myInfo, userInfo), false);
+    });
   });
 }

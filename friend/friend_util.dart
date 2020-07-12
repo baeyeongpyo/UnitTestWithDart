@@ -10,7 +10,7 @@ class FriendUtil {
     bool myFriendCheck = friendMAXCount(myInfo.isAuth) > myInfo.firendCount;
     bool userFriendCheck =
         friendMAXCount(userInfo.isAuth) > userInfo.firendCount;
-    return stateCheck || myFriendCheck || userFriendCheck;
+    return stateCheck && myFriendCheck && userFriendCheck;
   }
 
   int friendMAXCount(bool isAuth) =>
