@@ -16,13 +16,14 @@ class FriendUtil {
   int friendMAXCount(bool isAuth) =>
       isAuth ? FRIEND_MAX_COUNT : NOT_AUTH_FRIEND_MAX_COUNT;
 
-  friendStateChange(FriendVO userInfo) {
-    bool reuslt;
+  Future<bool> friendStateChange(FriendVO userInfo) async {
+    var result ;
     Future<bool> waitResult;
 
     switch (userInfo.firendState) {
       case FriendStateEnum.NOTHING:
         waitResult = friendRequest();
+        print("object");
         break;
       case FriendStateEnum.FRIENDS_REQUESTED:
         waitResult = friendRequestCancel();
@@ -37,10 +38,13 @@ class FriendUtil {
         waitResult = Future.value(false);
         break;
     }
+
+    result = await waitResult;
+    return result;
   }
 
-  friendRequest() async => Future.value(true);
-  friendRequestCancel() async => Future.value(true);
-  friendRemove() async => Future.value(true);
-  friendApply() async => Future.value(true);
+  friendRequest() => Future.value(true);
+  friendRequestCancel() => Future.value(true);
+  friendRemove() => Future.value(true);
+  friendApply() => Future.value(true);
 }
