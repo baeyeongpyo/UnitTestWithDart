@@ -10,7 +10,12 @@ main() {
 
   test("mocking then parameter ",(){
       when(mocking.parameterFunction("A")).thenReturn("mocking");
-      expect(mocking.parameterFunction("B"), "mocking");
+      expect(mocking.parameterFunction("A"), "mocking");
+  });
+
+  test("mocking then answer ",(){
+      when(mocking.futureTest()).thenAnswer((_)=>"mocking");
+      expect(mocking.futureTest(), "mocking");
   });
 
 }
@@ -18,6 +23,7 @@ main() {
 class TestClass {
   noParameterFunction() => "no Parameter test";
   parameterFunction(String s) => "Parameter test";
+  futureTest() async => Future.value(123);
 }
 
 class MockingTestClass extends Mock implements TestClass {}
